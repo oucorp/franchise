@@ -74,9 +74,21 @@
     .check{display:grid;gap:12px;padding-top:12px}.check div{display:flex;gap:12px;align-items:flex-start}.check i{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;flex:0 0 auto}
     .cta{background:var(--red);color:#fff;border-radius:38px;padding:58px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:0 20px 50px rgba(200,52,54,.16)}
     .cta h2{margin:0;font-size:clamp(34px,5vw,60px)}.cta p{margin:12px 0 0;opacity:.84}.cta .btn{background:#fff;color:var(--red);border-color:#fff}
+    .inquiry-wrap{margin-top:26px;background:#fff;color:var(--ink);border-radius:30px;padding:30px;box-shadow:0 20px 50px rgba(80,20,22,.16)}
+    .inquiry-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:13px;font-weight:900}
+    .field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px 15px;font:inherit;color:var(--ink);outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,52,54,.10)}
+    .field textarea{min-height:120px;resize:vertical}
+    .privacy{display:flex;gap:9px;align-items:flex-start;margin:16px 0 18px;font-size:13px;color:var(--muted)}
+    .privacy input{margin-top:4px}
+    .submit-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .submit-btn{border:0;background:var(--ink);color:#fff;border-radius:999px;padding:15px 22px;font:inherit;font-weight:900;cursor:pointer}
+    .submit-btn:disabled{opacity:.55;cursor:not-allowed}
+    .form-msg{font-size:14px;font-weight:800}
     footer{padding:48px 0 70px;color:#776f69;font-size:13px}.footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;border-top:1px solid var(--line);padding-top:26px}.source{max-width:720px}
     @media (max-width:900px){.nav-links{display:none}.nav-inner{height:68px}.hero{padding-top:46px}.hero-grid,.section-head,.cost-box,.seoul-grid,.cta{grid-template-columns:1fr}.hero-card{min-height:430px}.stats{padding-bottom:40px}.stat-grid{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0;border-top:1px solid var(--line)}.stat:nth-child(4){border-top:1px solid var(--line)}.cards,.strengths{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.strength{min-height:auto}.strength h3{margin-top:38px}.cta{padding:38px}.cta .btn{justify-self:start}}
-    @media (max-width:560px){.wrap{width:min(var(--max),calc(100% - 24px))}h1{font-size:44px}.hero-copy{font-size:16px}.hero-card{min-height:380px;padding:26px}.coffee-cup{transform:scale(.75);transform-origin:bottom right;right:30px}.s1,.s2{display:none}.hero-card h3{margin-top:70px;font-size:25px}.stat strong{font-size:28px}.stat+.stat{padding-left:16px}section{padding:68px 0}.cards,.process{grid-template-columns:1fr}.seoul{padding:30px 24px}.cta{padding:32px 24px}.footer-grid{display:block}.footer-grid>*+*{margin-top:14px}}
+    @media (max-width:560px){.wrap{width:min(var(--max),calc(100% - 24px))}h1{font-size:44px}.hero-copy{font-size:16px}.hero-card{min-height:380px;padding:26px}.coffee-cup{transform:scale(.75);transform-origin:bottom right;right:30px}.s1,.s2{display:none}.hero-card h3{margin-top:70px;font-size:25px}.stat strong{font-size:28px}.stat+.stat{padding-left:16px}section{padding:68px 0}.cards,.process,.inquiry-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.seoul{padding:30px 24px}.cta{padding:32px 24px}.inquiry-wrap{padding:22px 18px}.footer-grid{display:block}.footer-grid>*+*{margin-top:14px}}
   </style>
 </head>
 <body>
@@ -174,9 +186,23 @@
       </div>
     </div></section>
 
-    <section id="contact"><div class="wrap"><div class="cta">
+    <section id="contact"><div class="wrap"><div class="cta" style="display:block">
       <div><span style="font-weight:900;letter-spacing:.12em;font-size:13px">SEOUL FRANCHISE CONSULTING</span><h2>서울에서 하삼동을<br>시작하고 싶다면.</h2><p>점포가 없어도 괜찮습니다. 희망 지역과 조건부터 이야기해 주세요.</p></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="tel:15881234">대표 가맹문의 1588-1234</a><a class="btn" href="https://www.hasamdongcoffee.com/fc_information_ask.php" target="_blank" rel="noopener">온라인 상담신청</a></div>
+      <div class="inquiry-wrap">
+        <form id="inquiryForm">
+          <div class="inquiry-grid">
+            <div class="field"><label for="name">이름 *</label><input id="name" name="name" maxlength="50" required></div>
+            <div class="field"><label for="phone">연락처 *</label><input id="phone" name="phone" inputmode="tel" maxlength="30" placeholder="010-0000-0000" required></div>
+            <div class="field"><label for="region">희망 지역</label><input id="region" name="region" maxlength="100" placeholder="예: 강남구, 송파구"></div>
+            <div class="field"><label for="store_status">점포 보유 여부</label><select id="store_status" name="store_status"><option value="">선택</option><option>없음</option><option>보유</option><option>검토중</option></select></div>
+            <div class="field full"><label for="budget">예상 투자금</label><input id="budget" name="budget" maxlength="50" placeholder="예: 8천만원 내외"></div>
+            <div class="field full"><label for="message">문의 내용</label><textarea id="message" name="message" maxlength="2000" placeholder="희망 출점 시기, 운영 계획 등 자유롭게 적어주세요."></textarea></div>
+          </div>
+          <label class="privacy"><input id="privacy" type="checkbox" required><span>가맹 상담을 위해 이름, 연락처, 희망지역 등 입력 정보를 수집·이용하는 것에 동의합니다. 문의 응대 목적 외에는 사용하지 않습니다.</span></label>
+          <div class="submit-row"><button class="submit-btn" id="submitBtn" type="submit">문의 접수하기</button><span class="form-msg" id="formMsg" aria-live="polite"></span></div>
+        </form>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn" href="tel:15881234">대표 가맹문의 1588-1234</a><a class="btn" href="https://www.hasamdongcoffee.com/fc_information_ask.php" target="_blank" rel="noopener">본사 온라인 상담</a></div>
     </div></div></section>
   </main>
 
@@ -184,5 +210,48 @@
     <div><b style="color:var(--ink)">하삼동커피 서울본부</b><br>서울·수도권 가맹 및 출점 상담</div>
     <div class="source">본 페이지는 서울본부 소개용 랜딩페이지 시안입니다. 브랜드·가맹 관련 수치와 절차는 2026년 9월 18일 확인한 하삼동커피 공식 홈페이지의 공개 정보를 기준으로 구성했습니다. 비용·프로모션·개설 조건은 변경될 수 있으므로 실제 계약 전 정보공개서와 본사 최신 안내를 확인해야 합니다.</div>
   </div></footer>
+  <script>
+    const SUPABASE_URL = 'https://srbmchgfmacsiyztgwqb.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_dT9IIdVsBre7n8tSmHRCNQ_7UkgvdPA';
+    const form = document.getElementById('inquiryForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMsg = document.getElementById('formMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      submitBtn.disabled = true;
+      formMsg.textContent = '접수 중입니다...';
+
+      const payload = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        region: form.region.value.trim() || null,
+        store_status: form.store_status.value || null,
+        budget: form.budget.value.trim() || null,
+        message: form.message.value.trim() || null
+      };
+
+      try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/franchise_inquiries', {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('접수 실패');
+        form.reset();
+        formMsg.textContent = '문의가 정상적으로 접수되었습니다.';
+      } catch (err) {
+        formMsg.textContent = '접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
