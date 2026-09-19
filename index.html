@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="하삼동커피 서울본부 | 서울·수도권 가맹상담, 입지검토, 개설 및 운영 지원" />
+  <title>하삼동커피 서울본부</title>
+  <style>
+    :root{
+      --red:#c83436; --red-dark:#a92428; --ink:#201d1b; --muted:#746d67;
+      --paper:#f7f3ed; --cream:#efe6da; --line:#ded4ca; --white:#ffffff;
+      --green:#25483b; --shadow:0 20px 50px rgba(41,31,24,.10);
+      --radius:28px; --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",system-ui,-apple-system,sans-serif;line-height:1.6;word-break:keep-all}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+    .eyebrow:before{content:"";width:24px;height:2px;background:currentColor;border-radius:2px}
+    nav{position:sticky;top:0;z-index:30;background:rgba(247,243,237,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(222,212,202,.7)}
+    .nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:14px;font-weight:900;letter-spacing:-.04em}
+    .brand-badge{width:42px;height:42px;border-radius:15px;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px;line-height:1.05;text-align:center;font-weight:900;box-shadow:0 8px 24px rgba(200,52,54,.2)}
+    .brand-title{font-size:19px}.brand-title small{display:block;font-size:10px;letter-spacing:.14em;color:var(--muted);font-weight:800}
+    .nav-links{display:flex;gap:26px;font-size:14px;font-weight:700;color:#544d48}
+    .nav-cta{padding:12px 17px;background:var(--ink);color:#fff;border-radius:999px;font-size:14px;font-weight:800}
+    .hero{padding:72px 0 50px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+    h1{font-size:clamp(44px,6.4vw,82px);line-height:1.02;margin:18px 0 25px;letter-spacing:-.065em}
+    .red{color:var(--red)}
+    .hero-copy{font-size:18px;color:#5e5751;max-width:680px;margin-bottom:34px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 22px;border-radius:999px;font-weight:900;border:1px solid var(--ink);transition:.2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 14px 30px rgba(200,52,54,.18)}
+    .btn.ghost{background:transparent}
+    .hero-card{position:relative;min-height:520px;border-radius:40px;background:radial-gradient(circle at 76% 18%,rgba(255,255,255,.8) 0 12%,transparent 13%),linear-gradient(145deg,#d74a4d 0%,#c83436 56%,#9c1f23 100%);box-shadow:var(--shadow);overflow:hidden;color:#fff;padding:38px}
+    .hero-card:before,.hero-card:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.22)}
+    .hero-card:before{width:360px;height:360px;right:-80px;bottom:-90px}.hero-card:after{width:210px;height:210px;right:24px;bottom:-20px}
+    .coffee-cup{position:absolute;right:56px;bottom:68px;width:245px;height:180px;background:#f8f1e7;border-radius:22px 22px 78px 78px;box-shadow:inset 0 -16px 0 rgba(0,0,0,.04),0 25px 35px rgba(73,12,14,.25)}
+    .coffee-cup:before{content:"";position:absolute;width:94px;height:94px;border:24px solid #f8f1e7;border-left-width:17px;border-radius:50%;right:-74px;top:28px}
+    .coffee-cup:after{content:"";position:absolute;left:24px;right:24px;top:15px;height:30px;border-radius:50%;background:#4a2a1e;box-shadow:inset 0 6px 0 rgba(255,255,255,.08)}
+    .steam{position:absolute;width:52px;height:128px;border-radius:50%;border-left:5px solid rgba(255,255,255,.52);transform:rotate(9deg)}
+    .s1{right:208px;bottom:254px}.s2{right:142px;bottom:265px;height:105px;opacity:.65}
+    .hero-card h3{font-size:30px;line-height:1.15;margin:120px 0 8px;letter-spacing:-.04em;max-width:310px}
+    .hero-card p{opacity:.86;max-width:260px}
+    .pill{display:inline-block;padding:8px 11px;border:1px solid rgba(255,255,255,.4);border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.08em}
+    .stats{padding:14px 0 74px}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .stat{padding:28px 8px}.stat+.stat{border-left:1px solid var(--line);padding-left:28px}
+    .stat strong{display:block;font-size:34px;letter-spacing:-.05em}.stat span{font-size:13px;color:var(--muted)}
+    section{padding:92px 0}
+    .section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;margin-bottom:46px;align-items:end}
+    h2{font-size:clamp(34px,4.5vw,58px);line-height:1.08;margin:10px 0 0;letter-spacing:-.055em}
+    .section-head p{margin:0;color:var(--muted);font-size:17px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--white);border:1px solid #e9e1d8;border-radius:var(--radius);padding:30px;min-height:255px;box-shadow:0 10px 34px rgba(49,35,23,.05)}
+    .num{font-size:13px;color:var(--red);font-weight:900;letter-spacing:.12em}
+    .card h3{font-size:24px;line-height:1.18;letter-spacing:-.04em;margin:40px 0 14px}.card p{margin:0;color:var(--muted);font-size:15px}
+    .dark{background:#211f1d;color:#fff}.dark .section-head p,.dark .muted{color:#aaa29b}
+    .strengths{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#4b4540;border:1px solid #4b4540;border-radius:28px;overflow:hidden}
+    .strength{background:#292624;padding:34px;min-height:300px}.strength .ico{width:48px;height:48px;border-radius:15px;border:1px solid #675f59;display:grid;place-items:center;font-weight:900;color:#e8c9aa}
+    .strength h3{font-size:22px;margin:70px 0 12px}.strength p{color:#aaa29b;margin:0}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.step{padding:24px;border-top:2px solid var(--ink)}
+    .step b{font-size:12px;color:var(--red);letter-spacing:.1em}.step h4{font-size:18px;margin:14px 0 7px}.step p{margin:0;color:var(--muted);font-size:14px}
+    .cost-box{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:34px;border-radius:32px;background:var(--cream);border:1px solid #e1d4c6}
+    .cost-main{background:#fff;border-radius:24px;padding:30px}.cost-main .price{font-size:54px;line-height:1;font-weight:950;letter-spacing:-.06em;margin:18px 0}.cost-main small{color:var(--muted)}
+    .cost-list{display:grid;gap:0}.cost-row{display:flex;justify-content:space-between;gap:20px;padding:16px 4px;border-bottom:1px solid #d9cbbb}.cost-row span:last-child{font-weight:900}
+    .seoul{position:relative;overflow:hidden;background:linear-gradient(135deg,#f7eee5,#fff);border:1px solid #eadfd3;border-radius:36px;padding:48px}
+    .seoul:after{content:"SEOUL";position:absolute;right:-16px;bottom:-44px;font-size:150px;font-weight:950;letter-spacing:-.08em;color:rgba(200,52,54,.055)}
+    .seoul-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;position:relative;z-index:1}.seoul h3{font-size:38px;line-height:1.15;margin:10px 0 16px;letter-spacing:-.05em}
+    .check{display:grid;gap:12px;padding-top:12px}.check div{display:flex;gap:12px;align-items:flex-start}.check i{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;flex:0 0 auto}
+    .cta{background:var(--red);color:#fff;border-radius:38px;padding:58px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:0 20px 50px rgba(200,52,54,.16)}
+    .cta h2{margin:0;font-size:clamp(34px,5vw,60px)}.cta p{margin:12px 0 0;opacity:.84}.cta .btn{background:#fff;color:var(--red);border-color:#fff}
+    footer{padding:48px 0 70px;color:#776f69;font-size:13px}.footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;border-top:1px solid var(--line);padding-top:26px}.source{max-width:720px}
+    @media (max-width:900px){.nav-links{display:none}.nav-inner{height:68px}.hero{padding-top:46px}.hero-grid,.section-head,.cost-box,.seoul-grid,.cta{grid-template-columns:1fr}.hero-card{min-height:430px}.stats{padding-bottom:40px}.stat-grid{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0;border-top:1px solid var(--line)}.stat:nth-child(4){border-top:1px solid var(--line)}.cards,.strengths{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.strength{min-height:auto}.strength h3{margin-top:38px}.cta{padding:38px}.cta .btn{justify-self:start}}
+    @media (max-width:560px){.wrap{width:min(var(--max),calc(100% - 24px))}h1{font-size:44px}.hero-copy{font-size:16px}.hero-card{min-height:380px;padding:26px}.coffee-cup{transform:scale(.75);transform-origin:bottom right;right:30px}.s1,.s2{display:none}.hero-card h3{margin-top:70px;font-size:25px}.stat strong{font-size:28px}.stat+.stat{padding-left:16px}section{padding:68px 0}.cards,.process{grid-template-columns:1fr}.seoul{padding:30px 24px}.cta{padding:32px 24px}.footer-grid{display:block}.footer-grid>*+*{margin-top:14px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="하삼동커피 서울본부 홈">
+        <span class="brand-badge">하삼<br>동</span>
+        <span class="brand-title">하삼동커피 <small>SEOUL HEADQUARTERS</small></span>
+      </a>
+      <div class="nav-links"><a href="#seoul">서울본부</a><a href="#strength">경쟁력</a><a href="#process">개설절차</a><a href="#cost">창업비용</a></div>
+      <a class="nav-cta" href="#contact">가맹상담</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Hasamdong Coffee · Seoul</span>
+          <h1>부산에서 시작한<br>하삼동,<br><span class="red">서울의 동네로.</span></h1>
+          <p class="hero-copy">하삼동커피 서울본부는 서울·수도권 예비 점주를 위한 가맹 상담과 점포 검토, 개설 과정, 오픈 이후 운영 지원을 본사 시스템과 연결합니다.</p>
+          <div class="actions"><a class="btn primary" href="#contact">서울본부 가맹상담 →</a><a class="btn ghost" href="#strength">브랜드 경쟁력 보기</a></div>
+        </div>
+        <div class="hero-card" aria-label="하삼동커피 브랜드 비주얼">
+          <span class="pill">SINCE 2017 · BUSAN → SEOUL</span>
+          <h3>시작이 다른 커피,<br>이제 서울에서도 더 가까이.</h3>
+          <p>좋은 커피와 동네의 일상을 연결하는 하삼동커피의 다음 지역을 찾습니다.</p>
+          <div class="steam s1"></div><div class="steam s2"></div><div class="coffee-cup"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="stats"><div class="wrap stat-grid">
+      <div class="stat"><strong>2017</strong><span>부산에서 브랜드 시작</span></div>
+      <div class="stat"><strong>800+</strong><span>공식 홈페이지 표기 전국 가족점</span></div>
+      <div class="stat"><strong>10평+</strong><span>매장 개설 최소 필요 면적</span></div>
+      <div class="stat"><strong>350m</strong><span>매장 간 기본 직선거리 요건</span></div>
+    </div></div>
+
+    <section id="seoul"><div class="wrap"><div class="seoul"><div class="seoul-grid">
+      <div><span class="eyebrow">Seoul Headquarters</span><h3>서울·수도권 출점을<br>더 가까운 곳에서 상담합니다.</h3><p style="color:var(--muted);max-width:640px">브랜드의 기준은 그대로 유지하면서, 서울·수도권에서 실제 점포를 찾고 준비하는 과정의 접점을 줄이는 것이 서울본부의 역할입니다.</p></div>
+      <div class="check">
+        <div><i>✓</i><span><b>출점 상담</b><br><span style="color:var(--muted)">희망 지역과 투자 조건을 기준으로 상담</span></span></div>
+        <div><i>✓</i><span><b>입지·점포 검토</b><br><span style="color:var(--muted)">상권조사 및 후보 점포 검토 프로세스 연계</span></span></div>
+        <div><i>✓</i><span><b>개설·교육 연결</b><br><span style="color:var(--muted)">가맹계약, 오픈 클래스, 시공·오픈 준비 연계</span></span></div>
+        <div><i>✓</i><span><b>운영 지원</b><br><span style="color:var(--muted)">담당 슈퍼바이저를 통한 오픈·사후관리 체계</span></span></div>
+      </div>
+    </div></div></div></section>
+
+    <section id="strength" class="dark"><div class="wrap">
+      <div class="section-head"><div><span class="eyebrow" style="color:#e89294">Why Hasamdong</span><h2>하삼동이<br>쌓아온 경쟁력</h2></div><p>공식 홈페이지가 강조하는 핵심은 ‘좋은 커피’, ‘운영 시스템’, ‘본사 인프라’입니다. 서울본부 페이지에서는 예비 점주가 바로 이해할 수 있도록 세 가지로 압축했습니다.</p></div>
+      <div class="strengths">
+        <article class="strength"><div class="ico">01</div><h3>원두 블렌딩</h3><p>콜롬비아·브라질·에티오피아 원두를 블렌딩해 대중성과 향미 균형을 추구합니다.</p></article>
+        <article class="strength"><div class="ico">02</div><h3>자체 물류 & 로스팅</h3><p>브랜드가 구축한 물류와 로스팅 체계를 기반으로 매장 운영의 일관성을 지원합니다.</p></article>
+        <article class="strength"><div class="ico">03</div><h3>슈퍼바이저 관리</h3><p>정기 방문, 오픈 지원, 신제품 및 마케팅 지원 등 운영 단계의 관리 체계를 제공합니다.</p></article>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Seoul Launch Support</span><h2>서울본부가<br>집중하는 세 가지</h2></div><p>브랜드 설명보다 중요한 건 “내 점포를 어떻게 열 것인가”입니다. 그래서 서울본부 페이지의 중심을 상담 → 입지 → 오픈 실행으로 잡았습니다.</p></div>
+      <div class="cards">
+        <article class="card"><span class="num">01 · CONSULTING</span><h3>조건부터 먼저<br>정리합니다.</h3><p>희망 지역, 점포 유무, 예상 투자 범위, 운영 방식부터 정리해 불필요한 검토 시간을 줄입니다.</p></article>
+        <article class="card"><span class="num">02 · LOCATION</span><h3>서울 상권에서<br>점포를 봅니다.</h3><p>공식 가맹 절차의 상권조사·입지 후보지 선정 단계를 서울·수도권 출점 상담과 연결합니다.</p></article>
+        <article class="card"><span class="num">03 · OPENING</span><h3>계약보다 오픈 이후를<br>생각합니다.</h3><p>교육, 시공, 초도물품, 오픈 점검, 슈퍼바이저 파견과 사후 운영까지 이어지는 흐름을 안내합니다.</p></article>
+      </div>
+    </div></section>
+
+    <section id="process" style="background:#fff"><div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Opening Process</span><h2>상담에서<br>오픈까지</h2></div><p>하삼동커피 공식 개설 절차를 예비 점주 입장에서 보기 쉽게 8단계로 재정리했습니다.</p></div>
+      <div class="process">
+        <div class="step"><b>STEP 01</b><h4>가맹상담</h4><p>온라인·유선 창업 상담</p></div>
+        <div class="step"><b>STEP 02</b><h4>상권·점포개발</h4><p>지역 조사와 후보지 선정</p></div>
+        <div class="step"><b>STEP 03</b><h4>개설 승인</h4><p>점포와 출점 조건 검토</p></div>
+        <div class="step"><b>STEP 04</b><h4>현장 실측</h4><p>실측·견적 및 정보공개서 제공</p></div>
+        <div class="step"><b>STEP 05</b><h4>계약·설계</h4><p>가맹 및 인테리어 계약</p></div>
+        <div class="step"><b>STEP 06</b><h4>오픈 클래스</h4><p>레시피·CS·실무 교육</p></div>
+        <div class="step"><b>STEP 07</b><h4>시공·오픈</h4><p>초도물품, 점검, SV 파견</p></div>
+        <div class="step"><b>STEP 08</b><h4>사후관리</h4><p>정기방문·신제품·마케팅 지원</p></div>
+      </div>
+    </div></section>
+
+    <section id="cost"><div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Opening Cost</span><h2>공식 개설비용<br>한눈에 보기</h2></div><p>현재 공식 홈페이지의 10평 기준 안내 금액을 요약했습니다. 현장 조건과 옵션에 따라 별도 공사비가 추가될 수 있습니다.</p></div>
+      <div class="cost-box">
+        <div class="cost-main"><span class="num">10평 기준 · VAT 별도</span><div class="price">6,900만원</div><p>공식 홈페이지 현재 표기 총 창업비용</p><small>※ 철거, 냉난방, 소방, 전기증설, CCTV, 의탁자 등 별도사항 제외</small></div>
+        <div class="cost-list">
+          <div class="cost-row"><span>가맹비</span><span>500만원</span></div>
+          <div class="cost-row"><span>교육비</span><span>100만원*</span></div>
+          <div class="cost-row"><span>집기</span><span>2,900만원</span></div>
+          <div class="cost-row"><span>인테리어</span><span>2,950만원</span></div>
+          <div class="cost-row"><span>간판</span><span>450만원</span></div>
+          <div class="cost-row"><span>로열티</span><span>월 10만원</span></div>
+          <small style="padding-top:12px;color:var(--muted)">* 공식 홈페이지의 한시적 할인 표기 기준</small>
+        </div>
+      </div>
+    </div></section>
+
+    <section id="contact"><div class="wrap"><div class="cta">
+      <div><span style="font-weight:900;letter-spacing:.12em;font-size:13px">SEOUL FRANCHISE CONSULTING</span><h2>서울에서 하삼동을<br>시작하고 싶다면.</h2><p>점포가 없어도 괜찮습니다. 희망 지역과 조건부터 이야기해 주세요.</p></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="tel:15513335">대표 가맹문의 1551-3335</a><a class="btn" href="https://www.hasamdongcoffee.com/fc_information_ask.php" target="_blank" rel="noopener">온라인 상담신청</a></div>
+    </div></div></section>
+  </main>
+
+  <footer><div class="wrap footer-grid">
+    <div><b style="color:var(--ink)">하삼동커피 서울본부</b><br>서울·수도권 가맹 및 출점 상담</div>
+    <div class="source">본 페이지는 서울본부 소개용 랜딩페이지 시안입니다. 브랜드·가맹 관련 수치와 절차는 2026년 9월 18일 확인한 하삼동커피 공식 홈페이지의 공개 정보를 기준으로 구성했습니다. 비용·프로모션·개설 조건은 변경될 수 있으므로 실제 계약 전 정보공개서와 본사 최신 안내를 확인해야 합니다.</div>
+  </div></footer>
+</body>
+</html>
